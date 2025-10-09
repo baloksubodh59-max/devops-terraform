@@ -65,12 +65,14 @@ jobs:
 
             // Use the pull_request number from the payload
             const prNumber = context.payload.pull_request.number;
-            github.issues.createComment({
+
+            // Corrected API call using github.rest.issues.createComment
+            await github.rest.issues.createComment({
               issue_number: prNumber,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: output
-            })
+            });
 
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
