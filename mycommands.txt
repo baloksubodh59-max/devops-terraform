@@ -1,0 +1,5 @@
+ 
+ aws sts get-caller-identity
+ 
+aws ec2 describe-instance-types --filters "Name=free-tier-eligible,Values=true" | jq
+

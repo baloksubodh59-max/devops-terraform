@@ -2,7 +2,7 @@ terraform {
   # Assumes s3 bucket and dynamo DB table already set up
   # See /code/03-basics/aws-backend
   backend "s3" {
-    bucket         = "devops-directive-tf-state"
+    bucket         = "bolod-devops-directive-tf-state"
     key            = "07-managing-multiple-environments/global/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-state-locking"
@@ -12,7 +12,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.0"
+      version = "~> 6.15.0"
     }
   }
 }

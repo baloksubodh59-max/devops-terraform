@@ -2,7 +2,7 @@ terraform {
   # Assumes s3 bucket and dynamo DB table already set up
   # See /code/03-basics/aws-backend
   backend "s3" {
-    bucket         = "devops-directive-tf-state"
+    bucket         = "bolod-devops-directive-tf-state"
     key            = "06-organization-and-modules/web-app/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-state-locking"
@@ -12,7 +12,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.0"
+      version = "~> 6.15.0"
     }
   }
 }
@@ -41,7 +41,7 @@ module "web_app_1" {
   domain           = "devopsdeployed.com"
   app_name         = "web-app-1"
   environment_name = "production"
-  instance_type    = "t2.micro"
+  instance_type    = "t3.micro"
   create_dns_zone  = true
   db_name          = "webapp1db"
   db_user          = "foo"
@@ -56,7 +56,7 @@ module "web_app_2" {
   domain           = "anotherdevopsdeployed.com"
   app_name         = "web-app-2"
   environment_name = "production"
-  instance_type    = "t2.micro"
+  instance_type    = "t3.micro"
   create_dns_zone  = true
   db_name          = "webapp2db"
   db_user          = "bar"
