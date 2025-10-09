@@ -1,5 +1,5 @@
 - Note about using separate AWS accounts (avoids prefix issues, improved IAM control)
-  - Cover this in advanced section?
+  - Cover this in advanced section? No need for single aws account
   
 ```
 provider “aws” {
